@@ -18,8 +18,9 @@ const Login = props => {
     axiosWithAuth()
       .post(`https://anywhere-fitness-api.herokuapp.com/api/auth/login`, user)
       .then(res => {
-        localStorage.setItem("token", res.data.payload);
-        props.history.push("/client");
+        localStorage.setItem("token", res.data.token);
+        console.log(res.data.token);
+        props.history.push("/client/home");
       })
       .catch(error => console.log(error));
   };
