@@ -1,14 +1,15 @@
 import React, { Component } from "react";
 import axiosWithAuth from "../clients/API/axiosWithAuth";
+import { Link } from "react-router-dom";
 
-export class Register extends Component {
+export default class Register extends Component {
   state = {
     user: {
       firstName: "",
       lastName: "",
       email: "",
       password: "",
-      role: role || "client"
+      //role: role || "client"
     }
   };
 
@@ -76,11 +77,7 @@ export class Register extends Component {
               onChange={this.handleChange}
             />
             <button className="register-btn">
-              {this.props.creatingUser ? (
-                <Loader type="" color="#" height="26" width="26" />
-              ) : (
-                "Register"
-              )}
+                
             </button>
             <Link className="redirect-login" to="/client">
               Already have an Account? Sign in here

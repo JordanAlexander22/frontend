@@ -25,7 +25,7 @@ const Login = props => {
   };
   return (
     <>
-      <h1>Welcome Client (something to that effect</h1>
+      <h1>Welcome Client (something to that effect)</h1>
       <form className="login" onSubmit={login}>
         <h2>Login Here</h2>
         <label>Email</label>
