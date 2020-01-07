@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import axiosWithAuth from "../clients/API/axiosWithAuth";
+import axiosWithAuth from "./API/axiosWithAuth";
 
 const Login = props => {
   // make a post request to retrieve a token from the api
@@ -23,6 +23,7 @@ const Login = props => {
       })
       .catch(error => console.log(error));
   };
+  console.log(user)
   return (
     <>
       <h1>Welcome Client (something to that effect)</h1>
