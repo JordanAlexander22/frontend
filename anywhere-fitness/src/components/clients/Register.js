@@ -39,14 +39,14 @@ const UserForm = () => {
     <form onSubmit={onSubmit}>
       <input
         type="text"
-        name="First Name"
+        name="firstName"
         placeholder="First Name"
         value={user.firstName}
         onChange={handleChange}
       />
       <input
         type="text"
-        name="Last Name"
+        name="lastName"
         placeholder="Last Name"
         value={user.lastName}
         onChange={handleChange}
@@ -63,6 +63,13 @@ const UserForm = () => {
         name="password"
         placeholder="password"
         value={user.password}
+        onChange={handleChange}
+      />
+      <input
+        type="text"
+        name="role"
+        placeholder="role"
+        value={user.role}
         onChange={handleChange}
       />
       <button className="register-btn" type="submit">
