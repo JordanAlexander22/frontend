@@ -20,7 +20,7 @@ const ClientClass = props => {
         <div className="class-prop">{props.clientClass.description}</div>
       </div>
       <Link
-        to={`https://anywhere-fitness-api.herokuapp.com/api/classes/${props.instructorClass.classId}`}
+        to={`https://anywhere-fitness-api.herokuapp.com/api/classes/${props.clientClass.instructorId}`}
       >
         <button className="view-details-btn">View Details</button>
       </Link>
