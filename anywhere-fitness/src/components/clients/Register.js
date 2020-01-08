@@ -35,6 +35,8 @@ const UserForm = () => {
       .catch(error => console.log(error));
   };
   return (
+    <div>
+    <h1>Register Here</h1>
     <form onSubmit={onSubmit}>
       <input
         type="text"
@@ -75,6 +77,7 @@ const UserForm = () => {
         Create Your Account
       </button>
     </form>
+    </div>
   );
 };
 export default UserForm;
