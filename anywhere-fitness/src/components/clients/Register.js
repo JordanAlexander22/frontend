@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import axiosWithAuth from "../clients/API/axiosWithAuth";
+import axiosWithAuth from "./API/axiosWithAuth";
 
 const UserForm = () => {
   const [user, setUser] = useState({
@@ -19,11 +19,12 @@ const UserForm = () => {
 
   const onSubmit = e => {
     e.preventDefault();
+    console.log(user);
     axiosWithAuth()
-      .post("/api/auth/register", user)
+      .post("https://anywhere-fitness-api.herokuapp.com/api/auth/register", user)
       .then(res => {
-        console.log(e.target);
-        UserForm({
+        console.log(res);
+        setUser({
           ...user,
           firstName: "",
           lastName: "",
