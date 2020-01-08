@@ -20,7 +20,7 @@ const Login = props => {
       .then(res => {
         localStorage.setItem("token", res.data.token);
         console.log(res.data.token);
-        props.history.push("/client/home");
+        props.history.push("/clienthome");
       })
       .catch(error => console.log(error));
   };
