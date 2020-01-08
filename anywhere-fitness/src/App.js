@@ -2,6 +2,7 @@ import React from "react";
 import Login from "./components/clients/Login";
 import Home from "./components/clients/Home";
 import Register from "./components/clients/Register";
+//import ClientClass from "./components/clients/ClientClass";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import PrivateRoute from "./components/clients/PrivateRoute";
 import "./App.css";
@@ -12,7 +13,7 @@ function App() {
       <div className="App">
         <Route exact path="/" component={Login} />
         <span className="register">
-        <Register />
+        <Register exact path="/register" component={Register}/>
         </span>
         <PrivateRoute exact path="/clienthome" component={Home} />
       </div>
