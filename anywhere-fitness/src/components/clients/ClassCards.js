@@ -45,10 +45,10 @@ const [editing, setEditing] = useState(false);
 const [classToEdit, setClassToEdit] = useState();
 
 const {setClasses, classes, clas}= props;
-  const deleteClass = classDelete => {
-    // make a delete request to delete this color
+  const deleteReservation = classDelete => {
+    // make a delete request to delete this reservation
     axiosWithAuth()
-      .delete(`/api/classes/${classDelete._id}`)
+      .delete(`/api/client/reservation/${classDelete._id}`)
       .then(res => {
         console.log(res);
       })
@@ -59,6 +59,15 @@ const {setClasses, classes, clas}= props;
     setEditing(false);
   };
 
+const Reservaton = event => {
+    event.preventDefault();
+    axiosWithAuth()
+    .post(`/api/client/reservation/${clas._id}`, clas,)
+    .then(res => {
+        console.log(res)
+        console.log(res.data)
+    })
+}
 
   return (
     <Clas>
@@ -68,8 +77,8 @@ const {setClasses, classes, clas}= props;
         <p>location: {clas.location}</p>
         <p>{clas.description}</p>
       </Description>
-      <Editbtn>Edit</Editbtn>
-      <Deletebtn onClick={()=>deleteClass(clas)}>Delete</Deletebtn>
+      <Editbtn onClick={Reservaton}>Reserve</Editbtn>
+      <Deletebtn onClick={()=>deleteReservation(clas)}>Delete Reservation</Deletebtn>
     </Clas>
   );
 }
