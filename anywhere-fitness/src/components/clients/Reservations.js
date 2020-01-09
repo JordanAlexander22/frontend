@@ -10,7 +10,15 @@ export default function Reservations(){
           .then(response => {
             console.log("This is the reservation list ", response);
             const data = response.data;
-            setReservation(data);
+            response.data.forEach(item => {
+                axiosWithAuth()
+                .get(`/api/classes/${item.classId}`)
+                .then(res =>
+                   setReservation(res.data)
+                    )
+                
+            })
+            
           })
           .catch(error => {
             console.log("Data could not be retrieved", error);
@@ -22,6 +30,12 @@ export default function Reservations(){
 
 
     return (
-        <h1>test</h1>
+        <>
+
+        <h1>Reservations</h1>
+        <h2>{Reservation.type}</h2>
+        <h3>{Reservation.name}</h3>
+        <p>{Reservation.Starttime}</p>
+        </>
     )
 }
