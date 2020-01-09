@@ -69,6 +69,7 @@ const Reservaton = event => {
     })
 }
 
+
   return (
     <Clas>
       <h2> {clas.type}</h2>

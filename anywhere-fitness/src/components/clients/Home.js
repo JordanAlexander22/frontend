@@ -3,6 +3,8 @@ import Select from "react-select";
 import axiosWithAuth from "./API/axiosWithAuth";
 import ClassCards from "./ClassCards";
 import styled from "styled-components";
+import Reservations from "./Reservations";
+
 const classTypes = [
   { label: "Yoga", value: 1 },
   { label: "Weightlifting", value: 2 },
@@ -131,7 +133,7 @@ function Home() {
             );
           })}
         </div>
-        <div></div>
+        <Reservations/>
       </div>
     </>
   );
