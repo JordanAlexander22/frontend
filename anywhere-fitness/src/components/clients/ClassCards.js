@@ -41,32 +41,35 @@ export default function ClassCards(props) {
     padding: 0 4%;
   `;
 
+const [editing, setEditing] = useState(false);
+const [classToEdit, setClassToEdit] = useState();
+
+const {setClasses, classes, clas}= props;
   const deleteClass = classDelete => {
-    // make a delete request to delete this class
+    // make a delete request to delete this color
     axiosWithAuth()
-      .delete(
-        "https://anywhere-fitness-api.herokuapp.com/api/classes/${classId}"
-      )
+      .delete(`/api/classes/${classDelete._id}`)
       .then(res => {
         console.log(res);
       })
       .catch(error => {
         console.log(error, "failed to delete");
       });
-    //updateClasses(classes.filter(classes => classes.id !== classDelete.id));
-    //setEditing(false);
+    setClasses(classes.filter(clas => clas._id !== classDelete._id));
+    setEditing(false);
   };
+
 
   return (
     <Clas>
-      <h2> {props.type}</h2>
-      <h4>{props.name}</h4>
+      <h2> {clas.type}</h2>
+      <h4>{clas.name}</h4>
       <Description>
-        <p>location: {props.location}</p>
-        <p>{props.description}</p>
+        <p>location: {clas.location}</p>
+        <p>{clas.description}</p>
       </Description>
       <Editbtn>Edit</Editbtn>
-      <Deletebtn>Delete</Deletebtn>
+      <Deletebtn onClick={()=>deleteClass(clas)}>Delete</Deletebtn>
     </Clas>
   );
 }

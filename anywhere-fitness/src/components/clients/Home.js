@@ -119,14 +119,14 @@ function Home() {
       </div>
       <div className="container">
         <div className="class-list">
-          {Classes.map((classes, index) => {
+          {Classes.map((clas, index) => {
             return (
               <ClassCards
+                classes={Classes}
+                setClasses={setClasses}
                 key={index}
-                name={classes.name}
-                type={classes.type}
-                location={classes.location}
-                description={classes.description}
+                clas={clas}
+              
               />
             );
           })}
