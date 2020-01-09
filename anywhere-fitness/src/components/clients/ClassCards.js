@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
+import axiosWithAuth from "./API/axiosWithAuth";
 
 export default function ClassCards(props) {
   const Clas = styled.div`
@@ -28,6 +29,33 @@ export default function ClassCards(props) {
     font-weight: bold;
     padding: 0 4%;
   `;
+  const Deletebtn = styled.button`
+    width: 195px;
+    height: 22px;
+    color: #1b1a1a;
+    background-color: #bdbdbd;
+    border: none;
+    border-radius: 4px;
+    font-family: raleway;
+    font-weight: bold;
+    padding: 0 4%;
+  `;
+
+  const deleteClass = classDelete => {
+    // make a delete request to delete this class
+    axiosWithAuth()
+      .delete(
+        "https://anywhere-fitness-api.herokuapp.com/api/classes/${classId}"
+      )
+      .then(res => {
+        console.log(res);
+      })
+      .catch(error => {
+        console.log(error, "failed to delete");
+      });
+    //updateClasses(classes.filter(classes => classes.id !== classDelete.id));
+    //setEditing(false);
+  };
 
   return (
     <Clas>
@@ -38,6 +66,7 @@ export default function ClassCards(props) {
         <p>{props.description}</p>
       </Description>
       <Editbtn>Edit</Editbtn>
+      <Deletebtn>Delete</Deletebtn>
     </Clas>
   );
 }
