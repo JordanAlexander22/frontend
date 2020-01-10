@@ -4,6 +4,12 @@ import axiosWithAuth from "./API/axiosWithAuth";
 import ClassCards from "./ClassCards";
 import styled from "styled-components";
 import Reservations from "./Reservations";
+import Map from "./Map";
+
+const styles = {
+  fontSize: 14,
+  color: "#FFaa99"
+};
 
 const classTypes = [
   { label: "Yoga", value: 1 },
@@ -111,13 +117,23 @@ function Home() {
         <Listed>
           <ListedI>About</ListedI>
           <ListedI>Welcome, {firstName}!</ListedI>
+          <ListedI>Log Out</ListedI>
         </Listed>
       </section>
       <div className="select-bar">
-        <Select options={classTypes} isMulti />
-        <Select options={ClassDuration} isMulti />
-        <Select options={ClassTime} isMulti />
-        <Select options={ClassLevel} isMulti />
+        <Select
+          type="checkbox"
+          classNamePrefix="react-select"
+          options={classTypes}
+          isMulti
+        />
+        <Select
+          classNamePrefix="react-select"
+          options={ClassDuration}
+          isMulti
+        />
+        <Select classNamePrefix="react-select" options={ClassTime} isMulti />
+        <Select classNamePrefix="react-select" options={ClassLevel} isMulti />
       </div>
       <div className="container">
         <div className="class-list">
@@ -128,13 +144,15 @@ function Home() {
                 setClasses={setClasses}
                 key={index}
                 clas={clas}
-              
               />
             );
           })}
         </div>
-        <Reservations/>
+        <div>
+          <Map />
+        </div>
       </div>
+      <Reservations />
     </>
   );
 }
